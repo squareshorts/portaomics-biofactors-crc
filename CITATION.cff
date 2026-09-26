@@ -11,6 +11,7 @@ authors:
     email: "apereira@ufpa.br"
     affiliation: "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
 version: 1.0.0
+doi: "10.5281/zenodo.22979172"
 date-released: 2026-09-26
 repository-code: "https://github.com/squareshorts/portaomics-biofactors-crc"
 license: MIT
