@@ -100,7 +100,15 @@ The frozen model is a research classifier for tumor-versus-non-neoplastic colore
 
 ## Citation and archival release
 
-A versioned GitHub release and Zenodo DOI will be added for the manuscript-associated archival version. Until that release is minted, cite the repository by its GitHub commit identifier.
+The manuscript-associated reproducibility archive is frozen as GitHub release `v1.0.0` and archived on Zenodo.
+
+- Zenodo DOI: [10.5281/zenodo.22979172](https://doi.org/10.5281/zenodo.22979172)
+- GitHub release: [v1.0.0](https://github.com/squareshorts/portaomics-biofactors-crc/releases/tag/v1.0.0)
+- Frozen release commit: `51810d06ffe6aa9e94548b6b91981d2d3d0ea791`
+
+Suggested software citation:
+
+> Gama, Jessica Silva, and Antonio Pereira. (2026). *PORTA-OMICS CRC: Cross-cohort colorectal cancer transcriptomic validation with multi-omics support* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.22979172
 
 
 ## Funding
