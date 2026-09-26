@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software or reproducibility package, please cite it using the metadata below."
+title: "PORTA-OMICS CRC: Cross-cohort colorectal cancer transcriptomic validation with multi-omics support"
+type: software
+authors:
+  - family-names: "Gama"
+    given-names: "Jessica Silva"
+    affiliation: "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
+  - family-names: "Pereira"
+    given-names: "Antonio"
+    email: "apereira@ufpa.br"
+    affiliation: "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
+version: 1.0.0
+date-released: 2026-09-26
+repository-code: "https://github.com/squareshorts/portaomics-biofactors-crc"
+license: MIT
+keywords:
+  - colorectal cancer
+  - transcriptomics
+  - cross-cohort validation
+  - external validation
+  - biomarker signature
+  - proteomics
+  - DNA methylation
+abstract: >-
+  Reproducibility materials for a staged colorectal-cancer transcriptomic
+  study using six development cohorts, three locked external validation
+  cohorts, and orthogonal methylation and proteomic validation. The archive
+  preserves analysis locks, scripts, frozen model artifacts, derived results,
+  execution manifests, audit reports, and cryptographic hashes.
