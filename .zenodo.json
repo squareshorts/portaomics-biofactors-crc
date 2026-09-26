@@ -1,0 +1,27 @@
+{
+  "title": "PORTA-OMICS CRC: Cross-cohort colorectal cancer transcriptomic validation with multi-omics support",
+  "description": "Reproducibility materials for a staged colorectal-cancer transcriptomic study using six development cohorts, three locked external validation cohorts, and orthogonal methylation and proteomic validation. The archive preserves analysis locks, scripts, frozen model artifacts, derived results, execution manifests, audit reports, and cryptographic hashes. Raw public molecular datasets are not redistributed. This work was supported by the Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), Grant 309589/2023-1 to A.P., and by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).",
+  "creators": [
+    {
+      "name": "Gama, Jessica Silva",
+      "affiliation": "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
+    },
+    {
+      "name": "Pereira, Antonio",
+      "affiliation": "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "version": "1.0.0",
+  "keywords": [
+    "colorectal cancer",
+    "transcriptomics",
+    "cross-cohort validation",
+    "external validation",
+    "biomarker signature",
+    "proteomics",
+    "DNA methylation"
+  ]
+}
