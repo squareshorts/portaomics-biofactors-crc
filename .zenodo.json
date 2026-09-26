@@ -11,7 +11,7 @@
       "affiliation": "Laboratory of Signal Processing, Institute of Technology, Federal University of Pará, Belém, Pará, Brazil"
     }
   ],
-  "license": "MIT",
+  "license": "mit",
   "upload_type": "software",
   "access_right": "open",
   "version": "1.0.0",
@@ -23,5 +23,6 @@
     "biomarker signature",
     "proteomics",
     "DNA methylation"
-  ]
+  ],
+  "language": "eng"
 }
