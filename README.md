@@ -101,3 +101,8 @@ The frozen model is a research classifier for tumor-versus-non-neoplastic colore
 ## Citation and archival release
 
 A versioned GitHub release and Zenodo DOI will be added for the manuscript-associated archival version. Until that release is minted, cite the repository by its GitHub commit identifier.
+
+
+## Funding
+
+This work was supported by the Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), Grant 309589/2023-1 to A.P., and by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
