@@ -1,0 +1,129 @@
+{
+    "status": "ORTHOGONAL_SOURCES_ACQUISITION_IN_PROGRESS",
+    "acquisition_date": "2026-09-24T16:39:17.960600Z",
+    "sources": {
+        "TCGA_Methylation": {
+            "database": "NCI Genomic Data Commons",
+            "project_ids": [
+                "TCGA-COAD",
+                "TCGA-READ"
+            ],
+            "data_modality": "DNA Methylation",
+            "platform": "Illumina Human Methylation 450",
+            "api_query_filters": {
+                "op": "and",
+                "content": [
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "cases.project.project_id",
+                            "value": [
+                                "TCGA-COAD",
+                                "TCGA-READ"
+                            ]
+                        }
+                    },
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "data_category",
+                            "value": [
+                                "DNA Methylation"
+                            ]
+                        }
+                    },
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "data_type",
+                            "value": [
+                                "Methylation Beta Value"
+                            ]
+                        }
+                    },
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "data_format",
+                            "value": [
+                                "txt"
+                            ]
+                        }
+                    },
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "platform",
+                            "value": [
+                                "Illumina Human Methylation 450"
+                            ]
+                        }
+                    },
+                    {
+                        "op": "in",
+                        "content": {
+                            "field": "cases.samples.sample_type",
+                            "value": [
+                                "Primary Tumor",
+                                "Solid Tissue Normal"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "workflow_type": "SeSAMe Methylation Beta Estimation",
+            "sample_selection_rules": "Deterministic tie-break (smallest sample submitter barcode, then aliquot submitter barcode, then file UUID). Paired primary tumor and solid tissue normal only.",
+            "counts": {
+                "COAD_paired_participants": 38,
+                "READ_paired_participants": 7,
+                "combined_paired_participants": 45,
+                "selected_Primary_Tumor_files": 45,
+                "selected_Solid_Tissue_Normal_files": 45
+            },
+            "selected_beta_file_hashes_sha256": {},
+            "annotation": {
+                "expected_file_name": "HM450.hg38.manifest.gencode.v36.tsv.gz",
+                "expected_md5": "e163fc110043abb5a7ef623816383bb9",
+                "actual_sha256": "cb908b2aa8f49b2c92e3698dc04c379607850c36c329f2ff24dc765af655e483"
+            },
+            "tcga_methylation_source_hashes_sha256": "0ae26b35a3a5a88e4ca23f4f338b130fdf864a08fb1d5d03903b2610fbd65ab5"
+        },
+        "Illumina_HM450_Manifest": {
+            "file": "humanmethylation450_15017482_v1-2.csv",
+            "source": "https://webdata.illumina.com/downloads/productfiles/humanmethylation450/humanmethylation450_15017482_v1-2.csv",
+            "file_size": 197091968,
+            "sha256": "9b729b2e905ae6d02df777c06380980ef3f502a2990b05cda9169332c2e8e7a2",
+            "columns": [
+                "IlmnID",
+                "UCSC_RefGene_Name",
+                "UCSC_RefGene_Group"
+            ]
+        },
+        "CPTAC_Proteomics": {
+            "database": "Proteomic Data Commons (PDC)",
+            "study_id": "PDC000116",
+            "study_name": "Prospective Colon PNNL Proteome Qeplus",
+            "study_version_uuid": "bbc1441e-57b8-11e8-b07a-00a098d917f8",
+            "study_version": "1",
+            "api_queries_used": "PDC GraphQL API (studyCatalog, filesPerStudy, signedUrl)",
+            "quantitation_type": "Protein Assembly (Log2 Ratio - Only Unshared Peptides)",
+            "downloaded_file": {
+                "file_name": "CPTAC2_Colon_Prospective_Collection_PNNL_Proteome.tmt10.tsv",
+                "file_id": "42358b8d-fb24-43be-ac57-437c59a26ba9",
+                "file_size": 54855496,
+                "md5sum": "6cc8208af6da2554ade54de2afe090d8",
+                "sha256": "b74414e62bb34157066034e775aa6a8616b802d3b1352ab3d1019d635a35c218",
+                "data_category": "Protein Assembly",
+                "file_type": "Text",
+                "file_format": "tsv"
+            },
+            "sample_counts": {
+                "tumor": 97,
+                "normal": 100,
+                "paired_participants": 96
+            }
+        }
+    },
+    "methylation_promoter_mapping_rule": "A CpG probe is eligible for the promoter-level analysis of frozen gene G if: 1. its IlmnID exists in the selected HM450 SeSAMe beta files; 2. the Illumina v1.2 UCSC_RefGene_Name annotation contains G; 3. the transcript-aligned corresponding UCSC_RefGene_Group entry for G is one of: TSS200, TSS1500, 5'UTR, 1stExon. Where semicolon-separated gene names and gene-group fields contain multiple transcripts, preserve positional alignment between the two fields. A probe satisfying the rule through any transcript of G is eligible once. No cross-reactive/SNP filtering is to be added unless an explicit, authoritative prespecified mask is separately frozen BEFORE outcomes.",
+    "orthogonal_outcome_authorized": false
+}

@@ -1,0 +1,71 @@
+{
+    "analysis_version": "A2-final",
+    "analysis_status": "FROZEN_AND_AUTHORIZED",
+    "outcome_authorized": true,
+    "timestamp": "2026-09-24T16:49:14.750424Z",
+    "hashes": {
+        "final_20_gene_signature": "09fcaff82b3a59be8b1c38395c4de46fa68355908c5109c8927cad6fe15eaf95",
+        "orthogonal_source_lock_A2": "45dad8d38c532c6787137edbed4a1998826cfcb0bc0e5ceb9afa129b918250cd",
+        "tcga_methylation_source_hashes": "0ae26b35a3a5a88e4ca23f4f338b130fdf864a08fb1d5d03903b2610fbd65ab5",
+        "gdc_hg38_annotation": "cb908b2aa8f49b2c92e3698dc04c379607850c36c329f2ff24dc765af655e483",
+        "illumina_v1_2_manifest": "9b729b2e905ae6d02df777c06380980ef3f502a2990b05cda9169332c2e8e7a2",
+        "cptac_protein_assembly": "b74414e62bb34157066034e775aa6a8616b802d3b1352ab3d1019d635a35c218",
+        "script_hash": "7670843b49d2696f15045dc95ddf05b391a34bca6ce733156e50eef60fe657fd"
+    },
+    "methylation_rules": {
+        "eligible_promoter_categories": [
+            "TSS200",
+            "TSS1500",
+            "5'UTR",
+            "1stExon"
+        ],
+        "gene_aggregation": "median beta across all eligible promoter probes with nonmissing values",
+        "paired_delta": "Tumor minus Matched Normal",
+        "min_paired_n": 10,
+        "primary_effect": "median paired delta_beta",
+        "statistical_test": "two-sided Wilcoxon signed-rank test against zero (scipy.stats.wilcoxon)",
+        "multiplicity_correction": "Benjamini-Hochberg FDR across testable frozen genes",
+        "expected_direction": "INVERSE to transcriptomic coefficient"
+    },
+    "proteomics_rules": {
+        "quantitation_field": "Unshared Log Ratio",
+        "gene_mapping": "unambiguous exact single-gene assignment",
+        "participant_pairing": "Tumor versus Matched Normal, smallest aliquot_submitter_id then aliquot_id",
+        "gene_aggregation": "median of aliquot's Unshared Log Ratio values across eligible rows",
+        "paired_delta": "Tumor minus Matched Normal",
+        "min_paired_n": 10,
+        "primary_effect": "median paired delta_protein",
+        "statistical_test": "two-sided Wilcoxon signed-rank test against zero",
+        "multiplicity_correction": "Benjamini-Hochberg FDR across testable frozen genes",
+        "expected_direction": "SAME as transcriptomic coefficient"
+    },
+    "modality_level_concordance": {
+        "test": "exact two-sided binomial test against p=0.5",
+        "ci": "exact 95% Clopper-Pearson confidence interval"
+    },
+    "gene_level_support_definitions": {
+        "directional_support": "observed direction matches predefined expected direction",
+        "statistically_supported": "directionally concordant AND q < 0.05",
+        "classifications": [
+            "BOTH",
+            "METHYLATION_ONLY",
+            "PROTEIN_ONLY",
+            "DIRECTION_ONLY",
+            "DISCORDANT",
+            "UNMAPPED_OR_INSUFFICIENT"
+        ]
+    },
+    "required_outputs": [
+        "results/orthogonal_validation/methylation_gene_results.csv",
+        "results/orthogonal_validation/proteomics_gene_results.csv",
+        "results/orthogonal_validation/orthogonal_directional_summary.csv",
+        "results/orthogonal_validation/orthogonal_gene_support_matrix.csv",
+        "results/orthogonal_validation/methylation_gene_probe_mapping.csv",
+        "results/orthogonal_validation/proteomics_gene_row_mapping.csv",
+        "results/orthogonal_validation/proteomics_paired_sample_manifest.csv",
+        "results/orthogonal_validation/orthogonal_execution_manifest_A2.json",
+        "reports/orthogonal_multiomics_validation_A2.md",
+        "figures/orthogonal_multiomics_validation_A2.pdf",
+        "figures/orthogonal_multiomics_validation_A2.png"
+    ]
+}

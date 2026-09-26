@@ -1,0 +1,13 @@
+accession,role,omic,platform,expected_tumor_all,expected_normal_all,primary_tumor,primary_normal,paired_primary,control_source,download_mode,notes
+GSE41258,development,transcriptome,GPL96,186,54,186,54,0,corresponding_normal,series_matrix,"Primary CRC and normal colon only; exclude adenoma, metastasis, cell lines, normal liver/lung"
+GSE39582,development,transcriptome,GPL570,566,19,566,19,0,non_tumoral_mucosa,series_matrix,"Primary colon cancers plus 19 non-tumoral colorectal mucosae"
+GSE9348,development,transcriptome,GPL570,70,12,70,12,0,healthy_control,series_matrix,"Early-stage CRC tumors and healthy-control colorectal biopsies"
+GSE23878,development,transcriptome,GPL570,35,24,35,24,0,non_cancerous_colorectal,series_matrix,"35 CRC and 24 normal"
+GSE44861,development,transcriptome,GPL3921,56,55,56,55,0,adjacent_non_cancerous,series_matrix,"56 tumors and 55 adjacent noncancerous tissues"
+GSE103512,development,transcriptome,GPL13158,57,12,57,12,0,matched_normal,series_matrix,"Retain colorectal subset only from four-cancer FFPE study"
+GSE156451,external_locked,transcriptome,GPL24676,72,72,72,72,1,native_tissue,rnaseq_supplement,"72 paired tumor/native tissues; processed per-sample RPKM TXT files"
+GSE106582,external_locked,transcriptome,GPL10558,77,117,68,68,1,adjacent_mucosa,series_matrix,"Primary endpoint is 68 complete tumor-mucosa pairs; remaining samples secondary only"
+GSE44076,external_locked,transcriptome,GPL13667,98,148,98,98,1,adjacent_mucosa,series_matrix,"Primary endpoint is 98 paired tumor-adjacent normals; 50 healthy donors reserved for stress test"
+GSE101764,orthogonal_validation,methylation,GPL13534,112,149,,,1,adjacent_mucosa,metadata_only,"Matched methylation resource for GSE106582; no feature selection feedback"
+GSE131013,orthogonal_validation,methylation,GPL13534,96,144,,,1,adjacent_and_healthy,metadata_only,"96 paired tumor-adjacent normals plus 48 healthy donors; no feature selection feedback"
+PDC000116,orthogonal_validation,proteome,PDC-TMT10,97,100,,,1,adjacent_normal,metadata_only,"CPTAC prospective colon proteome; no feature selection feedback"

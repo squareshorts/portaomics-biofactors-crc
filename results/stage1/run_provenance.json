@@ -1,0 +1,44 @@
+{
+  "stage1_lock_sha256": "6ee7180c66fd4c8e43ad2073abb1f2b68ad2508eeebef9058a551d80e89b3390",
+  "stage0_report_sha256": "abfd9da01ace80b3100650cbf70a83f69c5989ed574973accb0c55fdfb286aae",
+  "sample_manifest_sha256": "e279e2b1f471aed60b7d4a30db24bd9e7bb450aac1bc30795bee412bbafef5dd",
+  "gene_universe_sha256": "090e6dbcb5c488d3b0ed33bd059df77ecd5b98c4ed6774300d45df96b1b8dc0b",
+  "development_expression": {
+    "GSE41258": {
+      "path": "data\\processed\\rank_normal_scores\\GSE41258.pkl.gz",
+      "sha256": "18bcefd512f2c5f858b3ae4872c1ef6f2aeb4cad45b62a73f221ac209a236195"
+    },
+    "GSE39582": {
+      "path": "data\\processed\\rank_normal_scores\\GSE39582.pkl.gz",
+      "sha256": "3aa456ddf0c4913f495b66439846c6a81b54d50b37abab594d376ec0a7b392c0"
+    },
+    "GSE9348": {
+      "path": "data\\processed\\rank_normal_scores\\GSE9348.pkl.gz",
+      "sha256": "22b64f41ea0bf2de86acd19dde1fd38b12df0526dcff969362e43177088c4a7c"
+    },
+    "GSE23878": {
+      "path": "data\\processed\\rank_normal_scores\\GSE23878.pkl.gz",
+      "sha256": "63d599ad40413dc1ba6ecebf636226004dbbb9fb3bdcdb12526959bc9e307575"
+    },
+    "GSE44861": {
+      "path": "data\\processed\\rank_normal_scores\\GSE44861.pkl.gz",
+      "sha256": "05a766cfb6073f9fbda54d5d766c862d321979a03216a32135f5360b6b06f60f"
+    },
+    "GSE103512": {
+      "path": "data\\processed\\rank_normal_scores\\GSE103512.pkl.gz",
+      "sha256": "128ef64f87a3f9e86fc8bb84c098629cef3ea0a8ae869015b1b39fac65903038"
+    }
+  },
+  "external_expression_loaded": false,
+  "methods": [
+    "PAFS",
+    "M_ONLY",
+    "COHORT_ADJ"
+  ],
+  "software": {
+    "python": "3.14.6 (main, Jul 31 2026, 07:41:16)  [MINGW GCC UCRT 16.1.0 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0"
+  }
+}

@@ -1,0 +1,39 @@
+﻿{
+  "lock_version": "1.2",
+  "lock_date": "2026-09-22",
+  "stage": "Stage 1B: adaptive portability development-only nested LOCO",
+  "stage0_review_status": "PASS",
+  "classifier_analysis_authorized": true,
+  "disease_association_peeking_authorized": true,
+  "development_only": true,
+  "development_accessions": [
+    "GSE41258",
+    "GSE39582",
+    "GSE9348",
+    "GSE23878",
+    "GSE44861",
+    "GSE103512"
+  ],
+  "external_accessions_locked": [
+    "GSE156451",
+    "GSE106582",
+    "GSE44076"
+  ],
+  "feature_universe_n": 10998,
+  "external_expression_loading_authorized": false,
+  "external_performance_evaluation_authorized": false,
+  "signature_sizes": [5, 10, 20, 50, 100, 200, 500],
+  "ridge_C_grid_log10": [
+    -4, -3.5, -3, -2.5, -2, -1.5, -1, -0.5,
+    0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
+  ],
+  "adaptive_lambda_grid": [0, 0.25, 0.5, 1, 2, 3],
+  "calibration_ridge_alpha": 0.1,
+  "primary_tuning_metric": "macro-average inner-LOCO AUROC",
+  "tuning_ties": "smaller signature, then stronger regularization, then smaller portability lambda",
+  "adaptive_score": "rank_M + lambda * mean(rank_S, rank_low_H, rank_low_C)",
+  "lambda_zero_interpretation": "exact disease-magnitude-only ranking",
+  "lambda_three_interpretation": "exact original equal-component PAFS ranking up to a positive multiplicative constant",
+  "elasticnet_required_before_external_validation": true,
+  "notes": "Stage 1B is an amendment motivated solely by Stage-1A development results. External expression matrices remain locked."
+}

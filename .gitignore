@@ -1,0 +1,51 @@
+﻿# Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Source molecular data and generated expression matrices
+data/raw/
+data/processed/
+
+# Temporary / scratch files
+scratch*
+tmp/
+temp/
+*.tmp
+
+# Local editor / OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.synctex.gz
+*.toc
+
+# Local packaged copies
+*.zip
+
+# Ad hoc recovery / handoff artifacts superseded by final scripts
+online_handoff_exploratory_A2/
+pdc_raw/
+process_pdc*.py
+recovery.py
+/pdc_raw.json
+/biospecimen.json
+/tcga_gdc_metadata.json
+/scripts/*.before_*
+/results/external_validation_failed_A1_*/
+/results/stage1c/pre_targeted_refit_GSE44861/

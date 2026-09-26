@@ -1,0 +1,14 @@
+{
+  "outer_holdout": "GSE44861",
+  "reason": "Original frozen final ElasticNet fit reached max_iter=3000 without convergence.",
+  "hyperparameters_retuned": false,
+  "l1_ratio": 0.1,
+  "C": 0.1,
+  "original_iterations": 3000,
+  "original_converged": false,
+  "refit_max_iter": 12000,
+  "refit_iterations": 3388,
+  "refit_converged": true,
+  "refit_nonzero_coefficients": 734,
+  "external_data_loaded": false
+}

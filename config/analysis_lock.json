@@ -1,0 +1,13 @@
+{
+  "study": "Portability-aware feature selection for cross-cohort colorectal cancer biomarkers with multi-omics validation",
+  "lock_version": "1.0",
+  "lock_date": "2026-09-22",
+  "stage": "data-integrity and preprocessing audit only",
+  "classifier_analysis_authorized": false,
+  "disease_association_peeking_authorized": false,
+  "primary_endpoint": "primary colorectal carcinoma tissue versus histologically non-neoplastic colorectal mucosa",
+  "primary_method_name": "PAFS",
+  "external_test_accessions": ["GSE156451", "GSE106582", "GSE44076"],
+  "development_accessions": ["GSE41258", "GSE39582", "GSE9348", "GSE23878", "GSE44861", "GSE103512"],
+  "notes": "Do not change cohort membership because of downstream predictive performance. Dataset exclusions require a documented technical eligibility failure before classifier results are examined."
+}

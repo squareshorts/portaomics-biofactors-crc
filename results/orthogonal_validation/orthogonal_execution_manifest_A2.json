@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-09-24T16:59:07.890060Z",
+    "python_version": "3.14.6 (main, Jul 31 2026, 07:41:16)  [MINGW GCC UCRT 16.1.0 64 bit (AMD64)]",
+    "pandas_version": "3.0.3",
+    "scipy_version": "1.18.0",
+    "script_hash": "7670843b49d2696f15045dc95ddf05b391a34bca6ce733156e50eef60fe657fd",
+    "analysis_lock_hash": "62a0b2693ba7a1f84bcf37adea7069c62ef5c18a07a3c93736211b947036e24a",
+    "source_lock_hash": "45dad8d38c532c6787137edbed4a1998826cfcb0bc0e5ceb9afa129b918250cd",
+    "genes_mapped_methylation": 20,
+    "genes_tested_methylation": 20,
+    "genes_mapped_proteomics": 10,
+    "genes_tested_proteomics": 9,
+    "paired_participants_methylation": 45,
+    "paired_participants_proteomics": 96,
+    "statistical_methods": "two-sided Wilcoxon signed-rank test against zero (zero_method=pratt)",
+    "fdr_method": "Benjamini-Hochberg",
+    "tuning_occurred": false
+}

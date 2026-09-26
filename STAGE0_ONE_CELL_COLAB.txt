@@ -1,0 +1,6 @@
+# Upload the repository ZIP to Colab, unzip it, then run this single cell:
+!pip -q install -r requirements-stage0.txt
+!python scripts/run_stage0.py
+
+# The final audit is written to:
+# reports/stage0_audit.md

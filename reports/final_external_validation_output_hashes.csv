@@ -1,0 +1,7 @@
+"Algorithm","Hash","Path"
+"SHA256","3AEBE4A68CB256B21377F7100F0AF3B7B9F27CDAFC4622FF44DBD95ACC2363D4","C:\work\portaomics_biofactors_crc\results\external_validation\external_bootstrap_primary.csv"
+"SHA256","91B5CB29333DE89A51DA361C3249A030424228AFEE285DEC059AEC2BCC6DB852","C:\work\portaomics_biofactors_crc\results\external_validation\external_execution_manifest.json"
+"SHA256","A1B7F0D1FC7B7CE1E6AEFE2B4A5E0AA417D70B8AB4E1335440A86E9AF7519E55","C:\work\portaomics_biofactors_crc\results\external_validation\external_identity_check.csv"
+"SHA256","974E69AD63007C22E85D630973C88EE51DFC8D1BC20FD103DFD36B75038D5815","C:\work\portaomics_biofactors_crc\results\external_validation\external_predictions.csv.gz"
+"SHA256","29CB213453557A9CCC4DEE20E4CEBCDC2911E2E952AD02E8B24D7F2E2B6DFC00","C:\work\portaomics_biofactors_crc\results\external_validation\external_primary_metrics.csv"
+"SHA256","447ECC1CAF962CE669004BABB49742A8F7CC29451FBEB7368CBCE8A784E74F43","C:\work\portaomics_biofactors_crc\results\external_validation\external_secondary_metrics.csv"

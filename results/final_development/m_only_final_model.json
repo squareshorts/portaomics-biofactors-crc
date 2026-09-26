@@ -1,0 +1,16 @@
+{
+  "method": "M_ONLY",
+  "lambda_portability": null,
+  "m": 20,
+  "C": 0.03162277660168379,
+  "intercept_standardized": 0.13604417496653493,
+  "fit_converged": true,
+  "fit_iterations": 12,
+  "objective": 0.6515366331161733,
+  "calibration_intercept": -0.010363701186425347,
+  "calibration_slope": 1.5985503910161654,
+  "calibration_converged": true,
+  "selected_macro_loco_auc": 0.9805443399525587,
+  "selected_min_loco_auc": 0.9029220779220779,
+  "selected_max_loco_auc": 1.0
+}

@@ -1,0 +1,170 @@
+{
+    "lock_version":  "2.1-pre-external-amendment-A1",
+    "lock_date":  "2026-09-23",
+    "status":  "DEVELOPMENT_FROZEN_EXTERNAL_AUTHORIZED",
+    "development_accessions":  [
+                                   "GSE41258",
+                                   "GSE39582",
+                                   "GSE9348",
+                                   "GSE23878",
+                                   "GSE44861",
+                                   "GSE103512"
+                               ],
+    "external_accessions":  [
+                                "GSE156451",
+                                "GSE106582",
+                                "GSE44076"
+                            ],
+    "feature_universe_n":  10998,
+    "primary_method":  "PAFS",
+    "primary_comparator":  "M_ONLY",
+    "secondary_feature_comparator":  "COHORT_ADJ",
+    "predictive_benchmark":  "ELASTICNET",
+    "primary_external_estimand":  "Within each external cohort, absolute AUROC of the frozen PAFS model. Because development tuning selected lambda_portability=0, frozen PAFS is mathematically identical to M_ONLY; PAFS-minus-M_ONLY is therefore not an inferential endpoint.",
+    "primary_external_uncertainty":  "2000-replicate participant-cluster bootstrap within each external cohort",
+    "primary_external_summary":  "Report each external-cohort PAFS AUROC and the unweighted macro-mean AUROC across the three primary external cohort analyses",
+    "absolute_external_performance":  "Report AUROC separately by method and external cohort plus unweighted macro-average. PAFS and M_ONLY may both be emitted as an implementation identity check but must be labeled as identical frozen models.",
+    "secondary_external_endpoints":  [
+                                         "AUPRC",
+                                         "balanced_Brier",
+                                         "calibration_intercept",
+                                         "calibration_slope",
+                                         "sensitivity_at_0.5",
+                                         "specificity_at_0.5"
+                                     ],
+    "classification_threshold":  0.5,
+    "external_primary_samples":  "Use Stage-0 primary_include samples only",
+    "GSE44076_secondary_stress_test":  "After primary paired validation, evaluate the prespecified healthy-control stress test separately; it must not replace the primary adjacent-normal result",
+    "orthogonal_multiomics_signature_source":  "Final all-six-development adaptive PAFS selected genes only; methylation/protein results cannot feed back into transcriptomic selection",
+    "external_expression_loading_authorized":  true,
+    "external_performance_evaluation_authorized":  true,
+    "frozen_models":  [
+                          {
+                              "method":  "PAFS",
+                              "lambda_portability":  0.0,
+                              "m":  20.0,
+                              "C":  0.03162277660168379,
+                              "intercept_standardized":  0.13604417496653493,
+                              "fit_converged":  true,
+                              "fit_iterations":  12,
+                              "objective":  0.6515366331161733,
+                              "calibration_intercept":  -0.010363701186425347,
+                              "calibration_slope":  1.5985503910161654,
+                              "calibration_converged":  true,
+                              "selected_macro_loco_auc":  0.9805443399525587,
+                              "selected_min_loco_auc":  0.9029220779220779,
+                              "selected_max_loco_auc":  1.0,
+                              "l1_ratio":  null,
+                              "nonzero_coefficients":  null
+                          },
+                          {
+                              "method":  "M_ONLY",
+                              "lambda_portability":  null,
+                              "m":  20.0,
+                              "C":  0.03162277660168379,
+                              "intercept_standardized":  0.13604417496653493,
+                              "fit_converged":  true,
+                              "fit_iterations":  12,
+                              "objective":  0.6515366331161733,
+                              "calibration_intercept":  -0.010363701186425347,
+                              "calibration_slope":  1.5985503910161654,
+                              "calibration_converged":  true,
+                              "selected_macro_loco_auc":  0.9805443399525587,
+                              "selected_min_loco_auc":  0.9029220779220779,
+                              "selected_max_loco_auc":  1.0,
+                              "l1_ratio":  null,
+                              "nonzero_coefficients":  null
+                          },
+                          {
+                              "method":  "COHORT_ADJ",
+                              "lambda_portability":  null,
+                              "m":  100.0,
+                              "C":  100.0,
+                              "intercept_standardized":  4.6234976491583,
+                              "fit_converged":  true,
+                              "fit_iterations":  46,
+                              "objective":  0.07704954140689174,
+                              "calibration_intercept":  -0.3212624383958139,
+                              "calibration_slope":  0.5577002201076121,
+                              "calibration_converged":  true,
+                              "selected_macro_loco_auc":  0.9776055000502701,
+                              "selected_min_loco_auc":  0.9003246753246753,
+                              "selected_max_loco_auc":  1.0,
+                              "l1_ratio":  null,
+                              "nonzero_coefficients":  null
+                          },
+                          {
+                              "method":  "ELASTICNET",
+                              "lambda_portability":  null,
+                              "m":  null,
+                              "C":  0.01,
+                              "intercept_standardized":  2.3591768779809317,
+                              "fit_converged":  true,
+                              "fit_iterations":  2056,
+                              "objective":  null,
+                              "calibration_intercept":  -0.028146958698813125,
+                              "calibration_slope":  1.0001530861815595,
+                              "calibration_converged":  true,
+                              "selected_macro_loco_auc":  0.979517897982712,
+                              "selected_min_loco_auc":  0.9064935064935065,
+                              "selected_max_loco_auc":  1.0,
+                              "l1_ratio":  0.1,
+                              "nonzero_coefficients":  313.0
+                          }
+                      ],
+    "artifact_hashes":  {
+                            "pafs_model_csv":  {
+                                                   "path":  "results\\final_development\\pafs_final_model.csv.gz",
+                                                   "sha256":  "b2d6c87a9ddd8f161b474903a904c4d4289448bc27907617cf8d58c2f99e7c36"
+                                               },
+                            "pafs_model_json":  {
+                                                    "path":  "results\\final_development\\pafs_final_model.json",
+                                                    "sha256":  "a95db4cfd798699beaa57d94b8b6fe5c98ab5257ff08ecb33e8e5b723f53e2ae"
+                                                },
+                            "m_only_model_csv":  {
+                                                     "path":  "results\\final_development\\m_only_final_model.csv.gz",
+                                                     "sha256":  "e38e9a94b14125481de70e26970ec448549929871122f54dc130c811f9b0f165"
+                                                 },
+                            "m_only_model_json":  {
+                                                      "path":  "results\\final_development\\m_only_final_model.json",
+                                                      "sha256":  "dcd1aa3dcdc6ce64de72986619731a3774f340283418aeac67870561eb607535"
+                                                  },
+                            "cohort_adj_model_csv":  {
+                                                         "path":  "results\\final_development\\cohort_adj_final_model.csv.gz",
+                                                         "sha256":  "e8180f9b317ebfbb4f5ee13750f30d103847551ca7257d8c2872efef10e8d0e4"
+                                                     },
+                            "cohort_adj_model_json":  {
+                                                          "path":  "results\\final_development\\cohort_adj_final_model.json",
+                                                          "sha256":  "057d4119f1c3f923e46b0fa9bf7abbca0da3df1108e46c442de06a923afeb6d6"
+                                                      },
+                            "elasticnet_model_csv":  {
+                                                         "path":  "results\\final_development\\elasticnet_final_model.csv.gz",
+                                                         "sha256":  "a8df7484a1cc17d54cb08a940c32724929b87ef8a5b4a496a4a9dad156b56cd1"
+                                                     },
+                            "elasticnet_model_json":  {
+                                                          "path":  "results\\final_development\\elasticnet_final_model.json",
+                                                          "sha256":  "c8beca9e5d83e6844bed513ec7414d27fb3392eed1f38230c08aa0de9f3fc683"
+                                                      },
+                            "final_model_summary":  {
+                                                        "path":  "results\\final_development\\final_model_summary.csv",
+                                                        "sha256":  "2d8a7d928a63fc6317f17783846999bd634bcf34f5fe06a7a0336608f9473d77"
+                                                    }
+                        },
+    "source_hashes":  {
+                          "final_development_lock":  "4a98b4cc182a85fc50b55c9ee3901571304f830cd8d718b9f33d8be950b64bfc",
+                          "stage1b_working_script":  "1a1d60ad0a7522d77933b362e98df450d865dbb229d5af076f3b30fd0620ed38",
+                          "stage1c_working_script":  "49db6c6f42dc3316e5899ac64f820363025be2a9ccffebbf1c6f5f5ae2541ea8"
+                      },
+    "notes":  "Development models remain frozen exactly as fitted. Amendment A1 changes only the external estimand because PAFS collapsed to M_ONLY at lambda_portability=0. No external cohort was loaded or evaluated before this amendment. External expression loading and one-shot performance evaluation are now authorized.",
+    "protocol_amendment_A1":  {
+                                  "date":  "2026-09-23",
+                                  "trigger":  "Post-freeze audit established that adaptive PAFS selected lambda_portability=0 with the same m and C as M_ONLY, making the two frozen models mathematically identical.",
+                                  "external_data_access_before_amendment":  "NONE",
+                                  "model_refitting":  "NONE",
+                                  "hyperparameter_changes":  "NONE",
+                                  "feature_selection_changes":  "NONE",
+                                  "new_primary_role":  "Absolute transport validation of the frozen PAFS model by external cohort, with unweighted macro-mean AUROC.",
+                                  "pafs_minus_m_only_role":  "Deterministic implementation identity check only; expected delta AUROC = 0 in every cohort if scoring is implemented correctly.",
+                                  "comparators":  "COHORT_ADJ and ELASTICNET remain prespecified secondary predictive benchmarks; no new superiority hypothesis is introduced."
+                              }
+}

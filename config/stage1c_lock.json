@@ -1,0 +1,27 @@
+﻿{
+  "lock_version": "1.3",
+  "lock_date": "2026-09-22",
+  "stage": "Stage 1C: full-universe ElasticNet development benchmark",
+  "stage0_review_status": "PASS",
+  "classifier_analysis_authorized": true,
+  "development_only": true,
+  "development_accessions": [
+    "GSE41258",
+    "GSE39582",
+    "GSE9348",
+    "GSE23878",
+    "GSE44861",
+    "GSE103512"
+  ],
+  "external_accessions_locked": [
+    "GSE156451",
+    "GSE106582",
+    "GSE44076"
+  ],
+  "feature_universe_n": 10998,
+  "external_expression_loading_authorized": false,
+  "external_performance_evaluation_authorized": false,
+  "elasticnet_l1_ratio_grid": [0.1, 0.5, 0.9],
+  "elasticnet_C_grid_log10": [-4, -3, -2, -1, 0, 1, 2, 3, 4],
+  "calibration_ridge_alpha": 0.1
+}

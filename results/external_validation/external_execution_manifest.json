@@ -1,0 +1,93 @@
+{
+    "timestamp": "2026-09-24T15:51:57Z",
+    "python_version": "3.14.6 (main, Jul 31 2026, 07:41:16)  [MINGW GCC UCRT 16.1.0 64 bit (AMD64)]",
+    "script_sha256": "0d18035bb92610bde60835b95902853d21aeb9d688c9588aab1cbb49d265bb2e",
+    "lock_sha256": "67b21bf5d360ca70b76033a3bd324624940169b3a0692e4e31a69639ea279255",
+    "amendment_sha256": "dc4dc1dc513dbbf7a01242a54cace8f49fb6ac78718f82c2fcb63baeb5c1c363",
+    "artifact_hashes": {
+        "pafs_model_csv": {
+            "path": "results\\final_development\\pafs_final_model.csv.gz",
+            "sha256": "b2d6c87a9ddd8f161b474903a904c4d4289448bc27907617cf8d58c2f99e7c36"
+        },
+        "pafs_model_json": {
+            "path": "results\\final_development\\pafs_final_model.json",
+            "sha256": "a95db4cfd798699beaa57d94b8b6fe5c98ab5257ff08ecb33e8e5b723f53e2ae"
+        },
+        "m_only_model_csv": {
+            "path": "results\\final_development\\m_only_final_model.csv.gz",
+            "sha256": "e38e9a94b14125481de70e26970ec448549929871122f54dc130c811f9b0f165"
+        },
+        "m_only_model_json": {
+            "path": "results\\final_development\\m_only_final_model.json",
+            "sha256": "dcd1aa3dcdc6ce64de72986619731a3774f340283418aeac67870561eb607535"
+        },
+        "cohort_adj_model_csv": {
+            "path": "results\\final_development\\cohort_adj_final_model.csv.gz",
+            "sha256": "e8180f9b317ebfbb4f5ee13750f30d103847551ca7257d8c2872efef10e8d0e4"
+        },
+        "cohort_adj_model_json": {
+            "path": "results\\final_development\\cohort_adj_final_model.json",
+            "sha256": "057d4119f1c3f923e46b0fa9bf7abbca0da3df1108e46c442de06a923afeb6d6"
+        },
+        "elasticnet_model_csv": {
+            "path": "results\\final_development\\elasticnet_final_model.csv.gz",
+            "sha256": "a8df7484a1cc17d54cb08a940c32724929b87ef8a5b4a496a4a9dad156b56cd1"
+        },
+        "elasticnet_model_json": {
+            "path": "results\\final_development\\elasticnet_final_model.json",
+            "sha256": "c8beca9e5d83e6844bed513ec7414d27fb3392eed1f38230c08aa0de9f3fc683"
+        },
+        "final_model_summary": {
+            "path": "results\\final_development\\final_model_summary.csv",
+            "sha256": "2d8a7d928a63fc6317f17783846999bd634bcf34f5fe06a7a0336608f9473d77"
+        }
+    },
+    "external_cohorts": [
+        "GSE156451",
+        "GSE106582",
+        "GSE44076"
+    ],
+    "sample_counts": {
+        "GSE156451_primary": 144,
+        "GSE106582_primary": 136,
+        "GSE44076_primary": 196,
+        "GSE44076_stress_test": 148
+    },
+    "class_counts": {
+        "GSE156451_primary": {
+            "tumor": 72,
+            "normal": 72
+        },
+        "GSE106582_primary": {
+            "tumor": 68,
+            "normal": 68
+        },
+        "GSE44076_primary": {
+            "tumor": 98,
+            "normal": 98
+        },
+        "GSE44076_stress_test": {
+            "tumor": 98,
+            "normal": 50
+        }
+    },
+    "participant_counts": {
+        "GSE156451_primary": 72,
+        "GSE106582_primary": 68,
+        "GSE44076_primary": 98,
+        "GSE44076_stress_test": 148
+    },
+    "bootstrap_seed": 20260924,
+    "bootstrap_replicates": 2000,
+    "primary_estimand": "Within each external cohort, absolute AUROC of the frozen PAFS model. Because development tuning selected lambda_portability=0, frozen PAFS is mathematically identical to M_ONLY; PAFS-minus-M_ONLY is therefore not an inferential endpoint.",
+    "secondary_endpoints": [
+        "AUPRC",
+        "balanced_Brier",
+        "calibration_intercept",
+        "calibration_slope",
+        "sensitivity_at_0.5",
+        "specificity_at_0.5"
+    ],
+    "confirmation": "No fitting/tuning was performed on external data. Frozen models used as-is.",
+    "macro_mean_primary_AUROC": 0.9901041900279446
+}

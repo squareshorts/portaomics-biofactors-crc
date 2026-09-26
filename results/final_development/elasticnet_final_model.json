@@ -1,0 +1,15 @@
+{
+  "method": "ELASTICNET",
+  "l1_ratio": 0.1,
+  "C": 0.01,
+  "intercept_standardized": 2.3591768779809317,
+  "fit_converged": true,
+  "fit_iterations": 2056,
+  "nonzero_coefficients": 313,
+  "calibration_intercept": -0.028146958698813125,
+  "calibration_slope": 1.0001530861815595,
+  "calibration_converged": true,
+  "selected_macro_loco_auc": 0.979517897982712,
+  "selected_min_loco_auc": 0.9064935064935065,
+  "selected_max_loco_auc": 1.0
+}

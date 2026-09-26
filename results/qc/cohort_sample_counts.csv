@@ -1,0 +1,10 @@
+accession,role,n_series_samples,tumor_all,normal_all,ambiguous,excluded,primary_tumor,primary_normal,expected_tumor_all,expected_normal_all,expected_primary_tumor,expected_primary_normal
+GSE41258,development,390,186,54,0,150,186,54,186,54,186,54
+GSE39582,development,585,566,19,0,0,566,19,566,19,566,19
+GSE9348,development,82,70,12,0,0,70,12,70,12,70,12
+GSE23878,development,59,35,24,0,0,35,24,35,24,35,24
+GSE44861,development,111,56,55,0,0,56,55,56,55,56,55
+GSE103512,development,280,57,12,0,211,57,12,57,12,57,12
+GSE156451,external_locked,144,72,72,0,0,72,72,72,72,72,72
+GSE106582,external_locked,194,77,117,0,0,68,68,77,117,68,68
+GSE44076,external_locked,246,98,148,0,0,98,98,98,148,98,98
