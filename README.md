@@ -1,80 +1,103 @@
-# PORTA-OMICS BioFactors CRC portability study
+# PORTA-OMICS CRC cross-cohort transcriptomic study
 
-Stage-0 reproducibility repository for the planned study:
+Reproducibility repository for a staged colorectal-cancer (CRC) transcriptomic study with locked external validation and orthogonal methylation/proteomic validation.
 
-**Portability-aware feature selection for cross-cohort colorectal cancer biomarkers with multi-omics validation**
+The repository preserves analysis locks, executable scripts, model artifacts, derived results, execution manifests, audit reports, and cryptographic hashes. Raw public molecular datasets are not redistributed.
 
-This repository is intentionally frozen at the **data-integrity / preprocessing-audit stage**. It downloads public data, constructs sample manifests, verifies prespecified inclusion counts, maps probes to genes, checks cross-platform gene coverage, and creates single-sample rank representations. It does **not** fit a classifier, compute disease AUCs, rank disease-associated genes, tune PAFS, or inspect external predictive performance.
+## Study design
 
-## Study separation
+Six GEO cohorts were used for development:
 
-The previously submitted microbiome manuscript asks whether biomarker signals are portable across cohorts. This study asks a distinct question: whether portability can be built into **host-tissue biomarker discovery** itself. It uses new CRC transcriptomic cohorts and independent methylation/proteomic validation rather than the submitted PD/CRC microbiome datasets.
+- GSE41258
+- GSE39582
+- GSE9348
+- GSE23878
+- GSE44861
+- GSE103512
 
-## Frozen transcriptomic cohorts
+Three cohorts were withheld from model development and used for locked external validation:
 
-Development: GSE41258, GSE39582, GSE9348, GSE23878, GSE44861, GSE103512.
+- GSE156451: 72 tumor / 72 normal in the primary paired analysis
+- GSE106582: 68 tumor / 68 normal in the primary paired analysis
+- GSE44076: 98 tumor / 98 adjacent-normal in the primary paired analysis
 
-Locked external validation: GSE156451, GSE106582, GSE44076.
+GSE44076 also supplied 50 independent healthy controls for a prespecified secondary stress test.
 
-Orthogonal validation, not used for feature selection: GSE101764, GSE131013, CPTAC/PDC PDC000116.
+Orthogonal validation used paired TCGA-COAD/READ methylation data and CPTAC/PDC study PDC000116 proteomics.
 
-See `config/datasets.csv` and `PROTOCOL_v1.0.md`.
+## Analysis chronology
 
+The repository is intentionally staged. Earlier protocol files are retained as provenance and should be read together with the later locks and amendments.
 
-## Windows note
+1. **Stage 0 — data integrity and harmonization.** Public transcriptomic cohorts were retrieved, sample inclusion was audited, probe-level arrays were collapsed to unambiguous gene symbols, and the common measurable feature universe was frozen at 10,998 genes. Each sample was transformed independently to percentile-rank normal scores. No disease-association or predictive performance was used at this stage.
+2. **Stage 1A — initial development-only nested LOCO analysis.** The original equal-component portability-aware feature-selection formulation was evaluated using only the six development cohorts.
+3. **Stage 1B — adaptive portability analysis.** A development-only amendment introduced a portability weight `lambda` selected strictly inside nested leave-one-cohort-out validation. The frozen adaptive score was
+   `rank_M + lambda * mean(rank_S, rank_low_H, rank_low_C)`.
+4. **Stage 1C — ElasticNet comparator.** A full-universe ElasticNet benchmark was tuned using development data only.
+5. **Final development freeze.** The selected PAFS model used 20 genes, ridge `C = 0.0316227766`, and `lambda = 0`. Under this frozen specification, PAFS became mathematically identical to the disease-magnitude-only model. The selected development LOCO macro-AUROC was 0.9805.
+6. **External protocol amendment A1.** Before any external expression matrix or external outcome was loaded, the primary external estimand was changed from the now-deterministic PAFS-minus-M_ONLY contrast to absolute AUROC of the frozen 20-gene PAFS model in each external cohort, with a 2,000-replicate participant-cluster bootstrap and unweighted macro-average.
+7. **Locked external validation.** Primary AUROCs were 0.9782 (GSE156451), 0.9922 (GSE106582), and 0.9999 (GSE44076), giving an unweighted macro-AUROC of 0.9901. The separate GSE44076 healthy-control stress test yielded AUROC 0.9998.
+8. **Orthogonal multi-omics validation A2.** All 20 signature genes were testable for promoter methylation; 11/20 followed the expected inverse direction. Nine genes were testable in CPTAC proteomics; all 9/9 followed the transcriptomically expected direction and remained significant after Benjamini-Hochberg correction.
 
-For Windows, use **standard CPython 3.13**, not the MSYS2/UCRT64 Python interpreter under `C:\msys64`. The latter can force source builds of NumPy and related scientific packages because standard Windows wheels do not match its ABI. See `WINDOWS_SETUP.md`.
+## External-validation execution incident
 
-## Stage-0 run
+The first external-validation execution reached the prespecified GSE44076 healthy-control stress-test path and stopped because those 50 samples had intentionally not been written to the Stage-0 primary-only processed matrix. No result files were written by the failed run.
 
-Create a Python environment and install:
+The correction was mechanical: a preflight/atomicity check was added, the 50 healthy samples were processed using the already frozen sample-wise transformation, and missing participant identifiers for independent healthy samples were replaced by their sample IDs for bootstrap clustering. No model, feature, hyperparameter, threshold, phenotype definition, or external endpoint was changed. The full incident record is retained in `reports/external_validation_execution_incident_A1.md`.
 
-```bash
-pip install -r requirements-stage0.txt
-```
+Accordingly, this repository does not describe the external evaluation as an uninterrupted "one-shot" execution; it documents the failed execution and the constrained mechanical repair explicitly.
 
-Then run:
+## Key frozen artifacts
 
-```bash
-python scripts/run_stage0.py
-```
+- `config/final_development_lock.json`
+- `config/final_external_lock_pre_A1.json`
+- `config/final_external_lock.json`
+- `reports/final_external_protocol_amendment_A1.md`
+- `reports/final_development_freeze.md`
+- `reports/external_validation_execution_incident_A1.md`
+- `results/final_development/`
+- `results/external_validation/`
+- `config/orthogonal_source_lock_A2.json`
+- `config/orthogonal_analysis_lock_A2.json`
+- `results/orthogonal_validation/`
 
-The script will:
+## Main analysis scripts
 
-1. download GEO Series Matrix files for the eight array cohorts;
-2. download the processed RPKM supplement for GSE156451;
-3. download GEO platform annotation tables for the array platforms;
-4. build a sample-level manifest using accession-specific rules;
-5. verify expected tumor/normal counts and paired subsets;
-6. convert probe-level expression to one value per unambiguous gene using within-sample probe medians;
-7. compute the cross-platform measurable-gene intersection;
-8. create the prespecified single-sample percentile-rank / normal-score representation;
-9. write a Stage-0 audit report without performing disease-association or classifier analyses.
+- `scripts/00_download_geo.py`
+- `scripts/01_build_manifest.py`
+- `scripts/02_preprocess_expression.py`
+- `scripts/03_stage0_report.py`
+- `scripts/10_stage1_nested_loco.py`
+- `scripts/11_stage1b_adaptive_loco.py`
+- `scripts/12_stage1c_elasticnet.py`
+- `scripts/13_final_development_freeze.py`
+- `scripts/14_one_shot_external_validation.py`
+- `scripts/15_orthogonal_multiomics_validation.py`
 
-Large downloaded data are excluded by `.gitignore`.
+The filename `14_one_shot_external_validation.py` is retained for provenance; the documented execution incident above should be consulted when interpreting the execution history.
 
-## Expected outputs
+## Reproducing the data layer
 
-```text
-results/manifests/sample_manifest.tsv
-results/qc/cohort_sample_counts.csv
-results/qc/pairing_summary.csv
-results/qc/expression_dimensions.csv
-results/qc/platform_mapping_summary.csv
-results/qc/value_summary.csv
-results/qc/gene_intersection.txt
-results/qc/file_checksums.tsv
-reports/stage0_audit.md
-data/processed/gene_expression/*.parquet
-data/processed/rank_normal_scores/*.parquet
-```
+Raw GEO, TCGA/GDC, and PDC inputs are intentionally excluded from Git. Stage-0 acquisition and harmonization instructions are retained in `PROTOCOL_v1.0.md`, `WINDOWS_SETUP.md`, `STAGE0_COLAB.ipynb`, and `run_stage0.ps1`.
 
-If any frozen sample count does not match, Stage 0 fails rather than silently proceeding.
+The root `PROTOCOL_v1.0.md` is the original Stage-0 protocol and is not a complete description of the later adaptive development, external-amendment, or orthogonal-validation stages. Later locks and reports listed above supersede it where explicitly documented.
+
+## Software environment
+
+Exact software versions used in the completed analyses are recorded in the execution/provenance manifests. In particular, the development and external-validation manifests record Python 3.14.6, NumPy 2.4.6, pandas 3.0.3, and SciPy 1.18.0 for the completed downstream analyses.
+
+The historical `requirements-stage0.txt` and `WINDOWS_SETUP.md` describe the earlier Stage-0 setup path. A release-level environment specification should therefore be interpreted together with the execution manifests rather than assuming that the Stage-0 dependency file describes the complete downstream environment.
 
 ## Data sources
 
-GEO accessions are downloaded from NCBI GEO programmatic endpoints. GSE156451 uses its per-sample processed RPKM TXT supplement rather than sequencing reads. Proteomic and methylation datasets are registered now but intentionally not pulled into feature selection.
+Transcriptomic data are publicly available from NCBI GEO under GSE41258, GSE39582, GSE9348, GSE23878, GSE44861, GSE103512, GSE156451, GSE106582, and GSE44076.
 
-## No-performance-peeking rule
+Methylation validation uses TCGA-COAD and TCGA-READ data obtained through the Genomic Data Commons. Proteomic validation uses Proteomic Data Commons study PDC000116.
 
-Stage 0 must be completed and archived before `classifier_analysis_authorized` is changed. No tumor-normal AUC, differential-expression ranking, PAFS score, or external predictive result belongs in this stage.
+## Scope
+
+The frozen model is a research classifier for tumor-versus-non-neoplastic colorectal tissue. The case-control external cohorts do not represent clinical prevalence, and the frozen probability values should not be interpreted as absolute clinical CRC risk.
+
+## Citation and archival release
+
+A versioned GitHub release and Zenodo DOI will be added for the manuscript-associated archival version. Until that release is minted, cite the repository by its GitHub commit identifier.
